@@ -96,8 +96,8 @@ class AddEditStore extends Component {
   
   sendAPIRequest = () => {
     this.setState({buttonLoading: true});
-    debugger;
-    let currentUser = JSON.parse(localStorage.getItem(CLAIM_USER));
+    
+    let currentUser = JSON.parse(sessionStorage.getItem(CLAIM_USER));
     const storeData = {
       user_id: currentUser.id, // TODO use real user ID
       name: this.state.name.value,

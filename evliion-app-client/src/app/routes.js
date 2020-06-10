@@ -39,7 +39,7 @@ const routes = props => {
         exact
         path="/"
         render={props =>
-          !localStorage.getItem(ACCESS_TOKEN) ? (
+          !sessionStorage.getItem(ACCESS_TOKEN) ? (
             <Login />
           ) : (
             <Welcome />

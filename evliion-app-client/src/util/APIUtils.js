@@ -5,8 +5,8 @@ const request = (options) => {
         'Content-Type': 'application/json'
     })
     
-    if(localStorage.getItem(ACCESS_TOKEN)) {
-        headers.append('Authorization', 'Bearer ' + localStorage.getItem(ACCESS_TOKEN))
+    if(sessionStorage.getItem(ACCESS_TOKEN)) {
+        headers.append('Authorization', 'Bearer ' + sessionStorage.getItem(ACCESS_TOKEN))
     }
 
     const defaults = { headers: headers };
@@ -45,6 +45,20 @@ export function addStore(storeData) {
         url: API_BASE_URL + "v1/store",
         method: 'POST',
         body: JSON.stringify(storeData)
+    })
+}
+
+export function deleteStore(storeId) {
+    return request({
+        url: API_BASE_URL + "v1/store/" + storeId,
+        method: 'DELETE'
+    })
+}
+
+export function getAllStores() {
+    return request({
+        url: API_BASE_URL + "v1/store/all",
+        method: 'GET'
     })
 }
 
@@ -116,7 +130,7 @@ export function searchCoordenates(address) {
 }
 
 export function getCurrentUser() {
-    if(!localStorage.getItem(ACCESS_TOKEN)) {
+    if(!sessionStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");
     }
 

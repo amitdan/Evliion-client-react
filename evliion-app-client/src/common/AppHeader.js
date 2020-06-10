@@ -20,13 +20,13 @@ class AppHeader extends Component {
 
     render() {
         let menuItems;
-        if(localStorage.getItem(ACCESS_TOKEN)) {
+        if(sessionStorage.getItem(ACCESS_TOKEN)) {
           menuItems = [
             <Menu.Item key="/"><Link to="/" className="homeLink"><Icon type="home" className="nav-icon" /></Link></Menu.Item>,
             <Menu.Item key="/EV/new"><Link to="/EV/new" className="new"><img src={pollIcon} alt="poll" className="poll-icon" /></Link></Menu.Item>,
-            <Menu.Item key="/profile" className="profile-menu profile"><ProfileDropdownMenu currentUser={this.props.currentUser} handleMenuClick={this.handleMenuClick}/></Menu.Item>,
             <Menu.Item key="/map"><Link to="/map" className="map"><Icon type="global" className="nav-icon" /></Link></Menu.Item>,
-            <Menu.Item key="/store"><Link to="/store" className="store addstore editstore"><Icon type="shop" className="nav-icon" /></Link></Menu.Item>
+            <Menu.Item key="/store"><Link to="/store" className="store addstore editstore"><Icon type="shop" className="nav-icon" /></Link></Menu.Item>,
+            <Menu.Item key="/profile" className="profile-menu profile"><ProfileDropdownMenu currentUser={this.props.currentUser} handleMenuClick={this.handleMenuClick}/></Menu.Item>
           ]; 
 
           return (

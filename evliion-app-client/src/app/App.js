@@ -36,7 +36,7 @@ class App extends Component {
     let that = this;
 
     var interval = setInterval(function() {
-      if(localStorage.getItem(ACCESS_TOKEN)) {
+      if(sessionStorage.getItem(ACCESS_TOKEN)) {
         that.handleLogin();
         clearInterval(interval);
       }
@@ -50,7 +50,7 @@ class App extends Component {
 
     getCurrentUser()
       .then(response => {
-        localStorage.setItem(CLAIM_USER, JSON.stringify(response));
+        sessionStorage.setItem(CLAIM_USER, JSON.stringify(response));
         this.setState({
           currentUser: response,
           isAuthenticated: true,
@@ -73,8 +73,8 @@ class App extends Component {
     notificationType = "success",
     description = "You're successfully logged out."
   ) {
-    localStorage.removeItem(ACCESS_TOKEN);
-    localStorage.removeItem(CLAIM_USER);
+    sessionStorage.removeItem(ACCESS_TOKEN);
+    sessionStorage.removeItem(CLAIM_USER);
 
     this.setState({
       currentUser: null,
