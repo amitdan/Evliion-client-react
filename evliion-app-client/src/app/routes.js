@@ -14,6 +14,8 @@ import NotFound from "../common/NotFound";
 import PrivateRoute from "../common/PrivateRoute";
 import Welcome from "./Welcome/Welcome";
 import { MAP_API_V3_KEY, ACCESS_TOKEN } from '../constants';
+import ListInventory from "../inventory/ListInventory";
+import Inventory from "../inventory/Inventory";
 
 const routes = props => {
   return (
@@ -47,6 +49,9 @@ const routes = props => {
         }
       />
       <Route path="/login" component={Login}></Route>
+      <Route path="/inventory" component={ListInventory}></Route>
+      <Route path="/addinventory" component={Inventory}></Route>
+      <Route path="/editinventory" component={Inventory}></Route>
       <Route path="/listvehicle" component={ListVehicle}></Route>
       <Route path="/vehicle" component={Vehicle}></Route>
       <Route path="/store" component={Store}></Route>

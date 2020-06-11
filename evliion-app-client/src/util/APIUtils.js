@@ -48,6 +48,21 @@ export function addStore(storeData) {
     })
 }
 
+export function addInventory(inventoryData) {
+    return request({
+        url: API_BASE_URL + "v1/inventory",
+        method: 'POST',
+        body: JSON.stringify(inventoryData)
+    })
+}
+
+export function deleteInventory(inventoryId) {
+    return request({
+        url: API_BASE_URL + "v1/inventory/" + inventoryId,
+        method: 'DELETE'
+    })
+}
+
 export function deleteStore(storeId) {
     return request({
         url: API_BASE_URL + "v1/store/" + storeId,

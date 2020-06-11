@@ -262,7 +262,7 @@ class AddEditStore extends Component {
                   autoComplete="off"
                   placeholder="Store name"
                   value={this.state.name.value} 
-                  onChange={(event) => this.handleInputChange(event, this.validateName)} />    
+                  onChange={(event) => this.handleInputChange(event, this.validateName)} />
               </FormItem>
               <FormItem label="Address"
                 hasFeedback

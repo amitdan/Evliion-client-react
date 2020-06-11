@@ -22,18 +22,23 @@ class AppHeader extends Component {
         let menuItems;
         if(sessionStorage.getItem(ACCESS_TOKEN)) {
           menuItems = [
-            <Menu.Item key="/"><Link to="/" className="homeLink"><Icon type="home" className="nav-icon" /></Link></Menu.Item>,
-            <Menu.Item key="/EV/new"><Link to="/EV/new" className="new"><img src={pollIcon} alt="poll" className="poll-icon" /></Link></Menu.Item>,
-            <Menu.Item key="/map"><Link to="/map" className="map"><Icon type="global" className="nav-icon" /></Link></Menu.Item>,
-            <Menu.Item key="/store"><Link to="/store" className="store addstore editstore"><Icon type="shop" className="nav-icon" /></Link></Menu.Item>,
-            <Menu.Item key="/profile" className="profile-menu profile"><ProfileDropdownMenu currentUser={this.props.currentUser} handleMenuClick={this.handleMenuClick}/></Menu.Item>
+            <Menu.Item key="/" title="Home"><Link to="/" className="homeLink"><Icon type="home" className="nav-icon" /></Link></Menu.Item>,
+            <Menu.Item key="/EV/new" title="Poll"><Link to="/EV/new" className="new"><img src={pollIcon} alt="poll" className="poll-icon" /></Link></Menu.Item>,
+            <Menu.Item key="/map" title="Map"><Link to="/map" className="map"><Icon type="global" className="nav-icon" /></Link></Menu.Item>,
+            <Menu.Item key="/store" title="Store"><Link to="/store" className="store addstore editstore"><Icon type="shop" className="nav-icon" /></Link></Menu.Item>,
+            <Menu.Item key="/inventory" title="Inventory"><Link to="/inventory" className="inventory addinventory editinventory"><Icon type="solution" className="nav-icon" /></Link></Menu.Item>,
+            <Menu.Item key="/profile" title="Profile" className="profile-menu profile"><ProfileDropdownMenu currentUser={this.props.currentUser} handleMenuClick={this.handleMenuClick}/></Menu.Item>
           ]; 
 
           return (
               <Header className="app-header">
               <div className="container">
                 <div className="app-title" >
-                  <Link to="/">Watt</Link>
+                  <Link to="/">
+                  <svg fill="#1890ff" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path  d="M3,22V8H7V22H3M10,22V2H14V22H10M17,22V14H21V22H17Z" />
+                  </svg> Evilion
+                    </Link>
                 </div>
                 <Menu
                   className="app-menu"
@@ -50,7 +55,7 @@ class AppHeader extends Component {
             <Header className="app-header">
             <div className="container">
               <div className="app-title" >
-                <Link to="/">Watt</Link>
+                <Link to="/">Evilion</Link>
               </div>
               <Menu
                 className="app-menu"
