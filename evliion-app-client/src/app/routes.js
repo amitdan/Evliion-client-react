@@ -16,6 +16,28 @@ import Welcome from "./Welcome/Welcome";
 import { MAP_API_V3_KEY, ACCESS_TOKEN } from '../constants';
 import ListInventory from "../inventory/ListInventory";
 import Inventory from "../inventory/Inventory";
+import { getAllStores } from '../util/APIUtils'
+import { currentLocation } from '../util/Helpers'
+
+var storesArr = [];
+
+getAllStores().then(res => {
+    res.content.forEach(store => {
+        storesArr.push([
+        {
+            name: store.name,
+            lat: store.address.lattitude,
+            lng: store.address.longitude,
+            id: store.id,
+            address: store.address.line1,
+            zipcode: store.address.zipCode,
+            subCategory: store.subCategory,
+            category: store.category
+          }
+      ]);
+    });
+    return storesArr;
+});
 
 const routes = props => {
   return (
@@ -30,6 +52,8 @@ const routes = props => {
               <div style={{ height: "100vh", width: "100vw" }}></div>
             }
             mapElement={<div style={{ height: "100vh" }}></div>}
+            storesArr={storesArr}
+            currentPosition={currentLocation()}
           />
         )}
       />
